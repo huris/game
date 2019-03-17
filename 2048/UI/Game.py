@@ -2,14 +2,8 @@
 # -*- coding: utf-8 -*-
 import random
 import sys
-
-import PyQt5
-from PyQt5 import QtCore
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QFont, QPixmap
-from PyQt5.QtWidgets import QApplication, QWidget, QDesktopWidget, QFrame, QGridLayout, QPushButton, QLCDNumber, QLabel, \
-    QVBoxLayout, QHBoxLayout, QMessageBox
-
+from PyQt5.QtWidgets import QApplication, QWidget, QMessageBox
 from Board import Board
 from UI import UI
 
@@ -19,9 +13,7 @@ class Game(QWidget):
         super().__init__()
 
         # 初始化变量
-        self.board = Board()  # 建立board
-        self.ui = UI()  # 建立UI
-        self.ui.restartButton.clicked.connect(self.start)  # 连接槽函数
+        self.isStart = False  # 控制键盘
         self.grabKeyboard()  # 窗口接受键盘事件
 
         # 开始游戏
@@ -37,19 +29,34 @@ class Game(QWidget):
 
         # 建立UI界面
         self.ui = UI()
+        self.ui.restartButton.clicked.connect(self.restart)  # 连接槽函数
+
+    def restart(self):
+        """
+        重新开始
+        :return:
+        """
+        self.start()
+        self.ui.changeUI(self.board.board_list)  # 刚开始有两个
+        self.ui.lbt.close()
+        self.ui.restartButton.setText("重新开始")
+        self.ui.restartButton.setStyleSheet(
+            "QPushButton{color:rgb(255,255,255);background:rgb(247,127,102);border-radius:8px;}")
+        self.isStart = True  # 可以开始游戏
 
     # 设置键盘响应操作
     def keyPressEvent(self, event):  # 响应键盘操作
-        if event.key() == Qt.Key_Left:
-            self.ui.nowScore = self.board.moveLeft(self.ui.nowScore)
-        if event.key() == Qt.Key_Right:
-            self.ui.nowScore = self.board.moveRight(self.ui.nowScore)
-        if event.key() == Qt.Key_Up:
-            self.ui.nowScore = self.board.moveUp(self.ui.nowScore)
-        if event.key() == Qt.Key_Down:
-            self.ui.nowScore = self.board.moveDown(self.ui.nowScore)
-        # 校检
-        self.check()
+        if self.isStart:
+            if event.key() == Qt.Key_Left:
+                self.ui.nowScore = self.board.moveLeft(self.ui.nowScore)
+            if event.key() == Qt.Key_Right:
+                self.ui.nowScore = self.board.moveRight(self.ui.nowScore)
+            if event.key() == Qt.Key_Up:
+                self.ui.nowScore = self.board.moveUp(self.ui.nowScore)
+            if event.key() == Qt.Key_Down:
+                self.ui.nowScore = self.board.moveDown(self.ui.nowScore)
+            # 校检
+            self.check()
 
     def check(self):
         """
@@ -71,10 +78,10 @@ class Game(QWidget):
                                                QMessageBox.Ok)
             self.start()
         else:
-            # 修改当前分数
-            self.ui.changeUI(self.board.board_list)
             # 在空白的地方,随机添加2,4
             self.board.addPiece()
+            # 修改当前分数
+            self.ui.changeUI(self.board.board_list)
 
     def isWin(self):
         # 判断游戏是否赢了

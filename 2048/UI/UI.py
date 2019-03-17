@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import sys
+
 from PyQt5 import QtCore
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import QDesktopWidget, QLabel, QPushButton, QGridLayout, QFrame, QVBoxLayout, QHBoxLayout, QWidget
+from PyQt5.QtGui import QFont, QPixmap
+from PyQt5.QtWidgets import QDesktopWidget, QLabel, QPushButton, QGridLayout, QFrame, QVBoxLayout, QHBoxLayout, QWidget, \
+    QApplication
 
 from Constant import VALUE_COLOR_DEF
 
@@ -25,7 +28,7 @@ class UI(QWidget):
         self.box = QHBoxLayout()
 
         # 添加一个重置按钮
-        self.restartButton = QPushButton('重新开始')
+        self.restartButton = QPushButton('开始游戏')
 
         # 定义一个框架
         self.Form = QFrame()
@@ -37,7 +40,7 @@ class UI(QWidget):
         self.maxScoreButton = QPushButton('最高分数\n' + str(self.maxScore))
 
         # 添加一个当前分数
-        self.nowScoreButton = QPushButton('分数\n' + str(self.nowScore))
+        self.nowScoreButton = QPushButton('当前分数\n' + str(self.nowScore))
 
         # 建立UI界面
         self.setupUI()
@@ -47,7 +50,7 @@ class UI(QWidget):
         每移动一步,修改界面
         :return:
         """
-        self.nowScoreButton.setText("分数\n" + str(self.nowScore))
+        self.nowScoreButton.setText("当前分数\n" + str(self.nowScore))
         self.printBoard(board)
 
 
@@ -70,6 +73,13 @@ class UI(QWidget):
         # 制作游戏背景的矩形
         self.backGround()
 
+        # 设置2048图标
+        self.lbt = QLabel(self)
+        self.lbt.setGeometry(20, 108, 360, 360)
+        self.pic = QPixmap('image/2048.png')
+        self.lbt.setPixmap(self.pic)
+        self.lbt.setScaledContents(True)
+
         self.show()
 
     def backGround(self):
@@ -90,7 +100,7 @@ class UI(QWidget):
         self.restartButton.setFixedHeight(50)
         self.restartButton.setFont(QFont('微软雅黑', 15))
         self.restartButton.setStyleSheet(
-            "QPushButton{color:rgb(255,255,255);background:rgb(247,127,102);border-radius:8px;}")
+            "QPushButton{color:rgb(255,255,255);background:rgb(64,116,52);border-radius:8px;}")
         self.box.addWidget(self.restartButton)  # 将重置按钮添加到box布局中
 
         # 设置框架的形状
@@ -165,3 +175,9 @@ class UI(QWidget):
         # 移动窗口位置
         self.move((screen.width() - size.width()) / 2,
                   (screen.height() - size.height()) / 2)
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ui = UI()
+    sys.exit(app.exec_())
