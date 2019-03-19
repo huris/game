@@ -18,8 +18,11 @@ class UI(QWidget):
         self.cell = dict()  # 存储全部像素点组件
         self.cells = list()  # 存储全部的像素点位置,单单存位置
 
-        self.maxScore = 0  # 最高得分
         self.nowScore = 0  # 当前得分
+
+        # 最高得分从文件夹中获取
+        with open('maxScore.txt', 'r') as f:
+            self.maxScore = int(f.readline())  # 最高得分
 
         # 定义一个垂直部件,Floor为整体布局
         self.Floor = QVBoxLayout()
@@ -51,8 +54,13 @@ class UI(QWidget):
         :return:
         """
         self.nowScoreButton.setText("当前分数\n" + str(self.nowScore))
+        if self.nowScore > self.maxScore:
+            self.maxScore = self.nowScore
+            with open('maxScore.txt', 'w') as f:
+                f.write(str(self.maxScore))
+                f.close()
+        self.maxScoreButton.setText("当前分数\n" + str(self.maxScore))
         self.printBoard(board)
-
 
     def setupUI(self):
         """
@@ -156,7 +164,7 @@ class UI(QWidget):
                 # 设置QSS
                 backgroundColor = VALUE_COLOR_DEF[index]
                 self.cell[(row, col)].setStyleSheet("QLabel{background:" + backgroundColor + ";}"
-                                                    "QLabel{color:rgb(255,255,255);font-size:40px;font-weight:bold;}"
+                                                                                             "QLabel{color:rgb(255,255,255);font-size:40px;font-weight:bold;}"
                                                     )
                 self.cell[(row, col)].setAlignment(Qt.AlignCenter)
                 # 设置一个像素块的大小

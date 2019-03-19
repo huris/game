@@ -3,7 +3,7 @@
 import random
 import sys
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QWidget, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWidget, QMessageBox, QDesktopWidget
 from Board import Board
 from UI import UI
 
@@ -46,7 +46,7 @@ class Game(QWidget):
 
     # 设置键盘响应操作
     def keyPressEvent(self, event):  # 响应键盘操作
-        if self.isStart:
+        if self.isStart == True:
             if event.key() == Qt.Key_Left:
                 self.ui.nowScore = self.board.moveLeft(self.ui.nowScore)
             if event.key() == Qt.Key_Right:
@@ -65,6 +65,7 @@ class Game(QWidget):
         """
         # 判断一下是否赢了
         if self.isWin():
+            self.isStart = False
             self.QMS = QMessageBox.information(self,
                                                'YOU WIN',
                                                '成功的人\n决不步人后尘\n而是永不放弃,创新!\n希望你能更上一层楼!',
@@ -72,6 +73,7 @@ class Game(QWidget):
             self.start()
         # 判断是否输了
         elif self.isLose():
+            self.isStart = False
             self.QMS = QMessageBox.information(self,
                                                'YOU LOSE',
                                                '只有经历过失败才是真正的赢\n因为你吸取了失败的教训,懂得了失败的真谛\n别灰心,再接再励!',
