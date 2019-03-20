@@ -34,11 +34,9 @@ class UI(QWidget):
         self.grid = QGridLayout()
 
         # 添加一个历史最高分数
-        # self.maxScoreButton = QPushButton('最高分数\n' + str(self.maxScore))
-        self.maxScoreButton = QPushButton()
+        self.maxScoreLabel = QLabel()
         # 添加一个当前分数
-        # self.nowScoreButton = QPushButton('当前分数\n' + str(self.nowScore))
-        self.nowScoreButton = QPushButton()
+        self.nowScoreLabel = QLabel()
 
         # 建立UI界面
         self.setupUI()
@@ -48,13 +46,13 @@ class UI(QWidget):
         每移动一步,修改界面
         :return:
         """
-        self.nowScoreButton.setText("当前分数\n" + str(nowScore))
+        self.nowScoreLabel.setText("当前分数\n" + str(nowScore))
         if nowScore > maxScore:
             maxScore = nowScore
             with open('maxScore.txt', 'w') as f:
                 f.write(str(maxScore))
                 f.close()
-        self.maxScoreButton.setText("当前分数\n" + str(maxScore))
+        self.maxScoreLabel.setText("当前分数\n" + str(maxScore))
         self.printBoard(board)
 
     def setupUI(self):
@@ -128,11 +126,12 @@ class UI(QWidget):
         显示最高分数
         :return:
         """
-        self.maxScoreButton.setFixedHeight(50)
-        self.maxScoreButton.setFont(QFont('微软雅黑', 15))
-        self.maxScoreButton.setStyleSheet(
-            "QPushButton{color:rgb(255,255,255);background:rgb(254,215,0);border-radius:8px;}")
-        self.box.addWidget(self.maxScoreButton)
+        self.maxScoreLabel.setFixedHeight(50)
+        self.maxScoreLabel.setFont(QFont('微软雅黑', 15))
+        self.maxScoreLabel.setAlignment(Qt.AlignCenter);
+        self.maxScoreLabel.setStyleSheet(
+            "QLabel{color:rgb(255,255,255);background:rgb(254,215,0);border-radius:8px;}")
+        self.box.addWidget(self.maxScoreLabel)
 
     def showNowScore(self):
         """
@@ -140,11 +139,12 @@ class UI(QWidget):
         :param nowScore:
         :return:
         """
-        self.nowScoreButton.setFixedHeight(50)
-        self.nowScoreButton.setFont(QFont('微软雅黑', 15))
-        self.nowScoreButton.setStyleSheet(
-            "QPushButton{color:rgb(252,235,215);background:rgb(204,195,180);border-radius:8px;}")
-        self.box.addWidget(self.nowScoreButton)
+        self.nowScoreLabel.setFixedHeight(50)
+        self.nowScoreLabel.setFont(QFont('微软雅黑', 15))
+        self.nowScoreLabel.setAlignment(Qt.AlignCenter);
+        self.nowScoreLabel.setStyleSheet(
+            "QLabel{color:rgb(252,235,215);background:rgb(204,195,180);border-radius:8px;}")
+        self.box.addWidget(self.nowScoreLabel)
 
     def printBoard(self, board_list):
         """

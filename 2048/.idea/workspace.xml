@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4e04faa-4054-4fb3-919e-3984c2dba610" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/UI/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/UI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/maxScore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UI/maxScore.txt" afterDir="false" />
     </list>
@@ -19,7 +18,7 @@
     <SUITE FILE_PATH="coverage/2048$game.coverage" NAME="game Coverage Results" MODIFIED="1552638814492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/命令行" />
     <SUITE FILE_PATH="coverage/2048$ex5.coverage" NAME="ex5 Coverage Results" MODIFIED="1552632378542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../大三/大三上/软件设计实践/166000877 胡奔 实验2.1(code)/ex5" />
     <SUITE FILE_PATH="coverage/2048$Play.coverage" NAME="Play Coverage Results" MODIFIED="1552635500681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UI" />
-    <SUITE FILE_PATH="coverage/2048$Game.coverage" NAME="Game Coverage Results" MODIFIED="1553042583569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UI" />
+    <SUITE FILE_PATH="coverage/2048$Game.coverage" NAME="Game Coverage Results" MODIFIED="1553045240659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UI" />
     <SUITE FILE_PATH="coverage/2048$cs.coverage" NAME="cs Coverage Results" MODIFIED="1552637471446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UI" />
     <SUITE FILE_PATH="coverage/2048$game__1_.coverage" NAME="game (1) Coverage Results" MODIFIED="1552612423043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/命令行" />
     <SUITE FILE_PATH="coverage/2048$Getch.coverage" NAME="Getch Coverage Results" MODIFIED="1552610850187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/命令行" />
@@ -27,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI/Game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+            <state relative-caret-position="97">
+              <caret line="83" column="32" lean-forward="true" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
               <folding>
                 <element signature="e#47#60#0" expanded="true" />
               </folding>
@@ -39,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/UI/UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="53" column="21" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="21" />
+            <state relative-caret-position="1685">
+              <caret line="143" column="48" selection-start-line="143" selection-start-column="48" selection-end-line="143" selection-end-column="48" />
               <folding>
                 <element signature="e#47#57#0" expanded="true" />
               </folding>
@@ -54,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI/Board.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="82" column="29" lean-forward="true" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
+            <state relative-caret-position="-13">
+              <caret line="55" column="23" lean-forward="true" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -88,6 +87,7 @@
       <find>chan</find>
       <find>self.nowScore</find>
       <find>with open</find>
+      <find>ScoreButton</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -111,8 +111,8 @@
         <option value="$PROJECT_DIR$/UI/Constants.py" />
         <option value="$PROJECT_DIR$/UI/Control.py" />
         <option value="$PROJECT_DIR$/UI/Constant.py" />
-        <option value="$PROJECT_DIR$/UI/Board.py" />
         <option value="$PROJECT_DIR$/UI/Game.py" />
+        <option value="$PROJECT_DIR$/UI/Board.py" />
         <option value="$PROJECT_DIR$/UI/UI.py" />
       </list>
     </option>
@@ -303,12 +303,12 @@
       <workItem from="1552811684262" duration="6485000" />
       <workItem from="1552824048627" duration="20000" />
       <workItem from="1552824428930" duration="4355000" />
-      <workItem from="1552989661907" duration="4114000" />
+      <workItem from="1552989661907" duration="5383000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47920000" />
+    <option name="totallyTimeSpent" value="49189000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -432,27 +432,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UI/Board.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="82" column="29" lean-forward="true" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/UI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="53" column="21" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="21" />
-          <folding>
-            <element signature="e#47#57#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-13">
+          <caret line="55" column="23" lean-forward="true" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UI/Game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        <state relative-caret-position="97">
+          <caret line="83" column="32" lean-forward="true" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
           <folding>
             <element signature="e#47#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/UI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1685">
+          <caret line="143" column="48" selection-start-line="143" selection-start-column="48" selection-end-line="143" selection-end-column="48" />
+          <folding>
+            <element signature="e#47#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
