@@ -18,12 +18,6 @@ class UI(QWidget):
         self.cell = dict()  # 存储全部像素点组件
         self.cells = list()  # 存储全部的像素点位置,单单存位置
 
-        self.nowScore = 0  # 当前得分
-
-        # 最高得分从文件夹中获取
-        with open('maxScore.txt', 'r') as f:
-            self.maxScore = int(f.readline())  # 最高得分
-
         # 定义一个垂直部件,Floor为整体布局
         self.Floor = QVBoxLayout()
 
@@ -40,26 +34,27 @@ class UI(QWidget):
         self.grid = QGridLayout()
 
         # 添加一个历史最高分数
-        self.maxScoreButton = QPushButton('最高分数\n' + str(self.maxScore))
-
+        # self.maxScoreButton = QPushButton('最高分数\n' + str(self.maxScore))
+        self.maxScoreButton = QPushButton()
         # 添加一个当前分数
-        self.nowScoreButton = QPushButton('当前分数\n' + str(self.nowScore))
+        # self.nowScoreButton = QPushButton('当前分数\n' + str(self.nowScore))
+        self.nowScoreButton = QPushButton()
 
         # 建立UI界面
         self.setupUI()
 
-    def changeUI(self, board):
+    def changeUI(self, board, nowScore, maxScore):
         """
         每移动一步,修改界面
         :return:
         """
-        self.nowScoreButton.setText("当前分数\n" + str(self.nowScore))
-        if self.nowScore > self.maxScore:
-            self.maxScore = self.nowScore
+        self.nowScoreButton.setText("当前分数\n" + str(nowScore))
+        if nowScore > maxScore:
+            maxScore = nowScore
             with open('maxScore.txt', 'w') as f:
-                f.write(str(self.maxScore))
+                f.write(str(maxScore))
                 f.close()
-        self.maxScoreButton.setText("当前分数\n" + str(self.maxScore))
+        self.maxScoreButton.setText("当前分数\n" + str(maxScore))
         self.printBoard(board)
 
     def setupUI(self):

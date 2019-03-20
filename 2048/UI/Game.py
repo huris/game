@@ -14,6 +14,11 @@ class Game(QWidget):
 
         # 初始化变量
         self.isStart = False  # 控制键盘
+        self.nowScore = 0  # 当前得分
+        # 最高得分从文件夹中获取
+        with open('maxScore.txt', 'r') as f:
+            self.maxScore = int(f.readline())  # 最高得分
+
         self.grabKeyboard()  # 窗口接受键盘事件
 
         # 开始游戏
@@ -24,6 +29,9 @@ class Game(QWidget):
         开始游戏
         :return:
         """
+        # 重新开始时,当前分数为0
+        self.nowScore = 0  # 当前得分
+
         # 建立Board
         self.board = Board()
 
@@ -37,7 +45,7 @@ class Game(QWidget):
         :return:
         """
         self.start()
-        self.ui.changeUI(self.board.board_list)  # 刚开始有两个
+        self.ui.changeUI(self.board.board_list, self.nowScore, self.maxScore)  # 刚开始有两个
         self.ui.lbt.close()
         self.ui.restartButton.setText("重新开始")
         self.ui.restartButton.setStyleSheet(
@@ -48,13 +56,13 @@ class Game(QWidget):
     def keyPressEvent(self, event):  # 响应键盘操作
         if self.isStart == True:
             if event.key() == Qt.Key_Left:
-                self.ui.nowScore = self.board.moveLeft(self.ui.nowScore)
+                self.nowScore = self.board.moveLeft(self.nowScore)
             if event.key() == Qt.Key_Right:
-                self.ui.nowScore = self.board.moveRight(self.ui.nowScore)
+                self.nowScore = self.board.moveRight(self.nowScore)
             if event.key() == Qt.Key_Up:
-                self.ui.nowScore = self.board.moveUp(self.ui.nowScore)
+                self.nowScore = self.board.moveUp(self.nowScore)
             if event.key() == Qt.Key_Down:
-                self.ui.nowScore = self.board.moveDown(self.ui.nowScore)
+                self.nowScore = self.board.moveDown(self.nowScore)
             # 校检
             self.check()
 
@@ -83,7 +91,7 @@ class Game(QWidget):
             # 在空白的地方,随机添加2,4
             self.board.addPiece()
             # 修改当前分数
-            self.ui.changeUI(self.board.board_list)
+            self.ui.changeUI(self.board.board_list, self.nowScore, self.maxScore)
 
     def isWin(self):
         # 判断游戏是否赢了
